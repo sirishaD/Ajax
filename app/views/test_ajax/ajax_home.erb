@@ -1,0 +1,26 @@
+<h1> This is test page for AJAX </h1>
+<script>
+
+var callExecuter=function(){
+  //alert("test");
+  $.ajax({
+    type:'GET',
+    url:'/test_ajax/set_time',
+    dataType:"json",
+    data: {},
+    success:function(result){
+      //alert(result);
+      document.getElementById('date').innerHTML=result;
+    }
+
+});
+
+}
+
+
+$(document).on("click","#executer-button",callExecuter);
+
+</script>
+<%= image_tag "sunrise.jpg" %>
+<p id="dLabel">The current time is:</p><p id="date"><%= @tDate %></p>
+<a href='#' id='executer-button' class='btn btn-default'>Update</a>
